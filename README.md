@@ -8,8 +8,8 @@ on the Internet with a few additions and packages it all as a friendly jQuery pl
 
 sources:
 
-* http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem
-* http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8
+* [http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem](http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem)
+* [http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8](http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8)
 
 Other solutions I found with a cursory Googling:
 
