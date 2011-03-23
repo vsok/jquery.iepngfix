@@ -9,7 +9,11 @@ on the Internet with a few additions and packages it all as a friendly jQuery pl
 
 Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility.
 
-## Sources:
+## Issues
+
+Please add any issues you might find to the Github issue tracker. Or feel free to fork and send a pull request.
+
+## Sources
 
 * [http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem](http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem)
 * [http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8](http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8)
