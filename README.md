@@ -7,8 +7,7 @@ on the Internet with a few additions and packages it all as a friendly jQuery pl
 
 ## Notes
 
-User jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility
-
+Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility.
 
 ## Sources:
 
