@@ -13,6 +13,14 @@ Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](h
 
 Please add any issues you might find to the Github issue tracker. Or feel free to fork and send a pull request.
 
+## License
+
+This project is licensed under the MIT license.
+
+## Author
+
+Created by Solid Design Group, a [Lehigh Valley website design](http://soliddesigngroup.net) company.
+
 ## Sources
 
 * [http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem](http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem)
