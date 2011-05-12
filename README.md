@@ -5,6 +5,10 @@ Fixes an issue where a blob of black color appears when using transparent PNGs, 
 This code amalgates various solutions to this problem that I found elsewhere
 on the Internet with a few additions and packages it all as a friendly jQuery plugin.
 
+## Demo
+
+In the future I plan on adding a standalone demo for this technique. If anyone would like to contribute this feel free to fork and send a pull request, and I will credit you in this README file!
+
 ## Notes
 
 Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility.
