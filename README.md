@@ -11,7 +11,7 @@ TODO: add usage and an example of how to use this in production, as well a descr
 
 ## Demo
 
-In the future I plan on adding a standalone demo for this technique. If anyone would like to contribute this feel free to fork and send a pull request, and I will credit you in this README file!
+Check out demo.html in the "demo" folder. The cycling slideshow demonstrates how jquery.iepngfix removes the black blobs when transitioning PNG with a transparent BG, and overlaid on top of another image. View the source to see how it all works.
 
 ## Notes
 
