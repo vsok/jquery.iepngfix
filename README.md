@@ -23,7 +23,7 @@ This project is licensed under the MIT license.
 
 ## Author
 
-Created by Solid Design Group, a [Lehigh Valley website design](http://soliddesigngroup.net) company.
+Created by Jonathan from Solid Design Group, a [Lehigh Valley website design](http://soliddesigngroup.net) company.
 
 ## Sources
 
