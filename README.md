@@ -5,6 +5,10 @@ Fixes an issue where a blob of black color appears when using transparent PNGs, 
 This code amalgamates various solutions to this problem that I found elsewhere
 on the Internet with a few additions, cleaned up and packaged as a friendly jQuery plugin.
 
+## Usage
+
+TODO: add usage and an example of how to use this in production, as well a description of the various options
+
 ## Demo
 
 In the future I plan on adding a standalone demo for this technique. If anyone would like to contribute this feel free to fork and send a pull request, and I will credit you in this README file!
