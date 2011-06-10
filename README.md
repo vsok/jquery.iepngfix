@@ -1,8 +1,8 @@
 # IE6/7/8 transparent PNG fix
 
-Fixes an issue where a blob of black color appears when using transparent PNGs, where one is layered on top of another on a higher CSS z-index.
+Fixes an issue where a blob of black color appears when using transparent PNGs, where one is layered on top of another image (even JPG) at a higher CSS z-index.
 
-This code amalgates various solutions to this problem that I found elsewhere
+This code amalgamates various solutions to this problem that I found elsewhere
 on the Internet with a few additions and packages it all as a friendly jQuery plugin.
 
 ## Demo
