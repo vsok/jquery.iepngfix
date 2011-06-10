@@ -3,7 +3,7 @@
 Fixes an issue where a blob of black color appears when using transparent PNGs, where one is layered on top of another image (even JPG) at a higher CSS z-index.
 
 This code amalgamates various solutions to this problem that I found elsewhere
-on the Internet with a few additions and packages it all as a friendly jQuery plugin.
+on the Internet with a few additions, cleaned up and packaged as a friendly jQuery plugin.
 
 ## Demo
 
