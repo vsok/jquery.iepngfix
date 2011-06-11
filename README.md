@@ -51,7 +51,8 @@ Created by Jonathan from Solid Design Group, a [Lehigh Valley website design](ht
 * [http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8](http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8)
 * [24 Ways - "Transparent PNGs in Internet Explorer 6"](http://24ways.org/2007/supersleight-transparent-png-in-ie6)
 
-## Other solutions I found with a cursory Googling:
+## Other solutions:
 
+* [Superslight jQuery plugin](http://allinthehead.com/retro/338/supersleight-jquery-plugin)
 * [DD_belatedPNG](http://www.dillerdesign.com/experiment/DD_belatedPNG/)
 * [PNG Fix](http://blog.pauljamescampbell.co.uk/about-2/png-fix/)
