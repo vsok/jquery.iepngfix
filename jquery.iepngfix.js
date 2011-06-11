@@ -16,18 +16,18 @@
 (function ($) {
 if (!$) return;
 
-var DEFAULT_EMPTY_IMAGE_PATH = "empty.gif";
 var DEFAULT_SIZING_METHOD = "scale";
+
+// Empty 1x1px GIF, Base 64 encoded
+// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
+var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
 
 $.fn.extend({
 	// TODO: document the purpose of each of these parameters in high detail
 	// sizingMethod: either "crop" or "scale"
-	fixPNG: function(sizingMethod, forceBG, emptyImagePath) {
+	fixPNG: function(sizingMethod, forceBG) {
 		// Don't bother with non-IE browsers
 		if (!($.browser.msie)) return this;
-		
-		// Path to empty 1x1px GIF goes here
-		emptyImagePath = emptyImagePath || DEFAULT_EMPTY_IMAGE_PATH;
 		
 		// Sizing method defaults to scale (matches image dimensions)
 		// TODO: enforce either "crop" or "scale"
@@ -47,9 +47,9 @@ $.fn.extend({
 			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
 			
 			if (isImg) {
-				this.src = emptyImagePath;
+				this.src = SHIM_IMAGE;
 			} else {
-				this.style.backgroundImage = "url(" + emptyImagePath + ")";
+				this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
 			}
 		});
 		
