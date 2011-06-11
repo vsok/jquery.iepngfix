@@ -34,9 +34,14 @@ $.fn.extend({
 		sizingMethod = sizingMethod || DEFAULT_SIZING_METHOD;
 		
 		this.each(function() {
-			var isImg = (forceBG) ? false : jQuery.nodeName(this, "img");
-			var imgname = (isImg) ? this.src : this.currentStyle.backgroundImage;
-			var src = (isImg) ? imgname : imgname.substring(5,imgname.length-2);
+			// determine if this node is an image
+			var isImg = forceBG ? false : jQuery.nodeName(this, "img");
+			
+			// image name
+			var imgName = isImg ? this.src : this.currentStyle.backgroundImage;
+			
+			// image src
+			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
 			
 			// Set the "AlphaImageLoader" proprietary filter IE filter
 			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";

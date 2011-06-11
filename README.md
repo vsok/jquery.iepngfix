@@ -7,7 +7,21 @@ on the Internet with a few additions, cleaned up and packaged as a friendly jQue
 
 ## Usage
 
-TODO: add usage and an example of how to use this in production, as well a description of the various options
+Make sure that you've included jQuery
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js></script>
+
+In your jQuery script, use a selector to pick out the images that you want to apply the PNG fix to.
+
+    $('selectorhere').fixPNG(sizingMethod, forceBG, emptyImagePath);
+
+sizingMethod: either "scale" or "crop". You generally want "scale"
+forceBG: TODO:NEED TO CLARIFY THE PURPOSE OF THIS AND DOCUMENT IT
+emptyImagePath: path to a 1x1 transparent .gif
+		
+Example:
+
+    $('#slideshow .content img').fixPNG('scale', true, '../../empty.gif');
 
 ## Demo
 
