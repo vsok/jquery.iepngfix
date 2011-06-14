@@ -2,7 +2,7 @@ $(document).ready(function(){
   var slideshowContent = $('#slideshow .content');
 	
   //transparent fading PNG fix for IE7/8
-  slideshowContent.find('img').fixPNG('scale', true, '../../empty.gif');
+  slideshowContent.find('img').fixPNG('scale', true);
 	
   //content slider
   var CYCLE_TIMEOUT_S = 10;

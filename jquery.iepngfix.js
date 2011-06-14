@@ -15,10 +15,12 @@
 (function( $ ) {
 	// TODO: document the purpose of each of these parameters in high detail
 	// sizingMethod: either "crop" or "scale"
+	// forceBG: force the element's style "background-image" attribute to be considered
+	//          rather than using the img tag's src attribute
 	$.fn.fixPNG = function (sizingMethod, forceBG) {
 		
 		// Don't bother with non-IE browsers
-		if (!($.browser.msie)) return $(this);
+		if (!($.browser.msie)) return this;
 		
 		var DEFAULT_SIZING_METHOD = "scale";
 
@@ -31,28 +33,24 @@
 		sizingMethod = sizingMethod || DEFAULT_SIZING_METHOD;
 		
 		return this.each(function() {
-			
-			var $this = $(this);
 
 			// determine if this node is an image
-			var isImg = forceBG ? false : jQuery.nodeName($this, "img");
+			var isImg = forceBG ? false : $.nodeName(this, "img");
 
 			// image name
-			var imgName = isImg ? $this.src : $this.currentStyle.backgroundImage;
+			var imgName = isImg ? this.src : this.currentStyle.backgroundImage;
 
 			// image src
 			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
 
 			// Set the "AlphaImageLoader" proprietary filter IE filter
-			$this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
+			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
 
 			if (isImg) {
-				$this.src = SHIM_IMAGE;
+				this.src = SHIM_IMAGE;
 			} else {
-				$this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
+				this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
 			}
-
-			return $this;
 		});
 	}
 })( jQuery );
