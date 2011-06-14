@@ -1,6 +1,6 @@
-# IE6/7/8 transparent PNG fix
+# IE5/6/7/8 transparent PNG fix
 
-Fixes an IE issue where a blob of black color appears when fading transparent PNGs using opacity, where one is layered on top of another image (even JPG) at a higher CSS z-index.
+Adds IE5/6/7/8 support for PNGs, and provides a workaround for an IE issue where a blob of black color appears when fading transparent PNGs using opacity.
 
 This code amalgamates various solutions to this problem that I found elsewhere
 on the Internet with a few additions, cleaned up and packaged as a friendly jQuery plugin.

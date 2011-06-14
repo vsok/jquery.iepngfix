@@ -7,3 +7,9 @@ I recently did a client site with some tricky Ajax page loads (unontrusively, of
 Microsoft needs to research how Webkit and Gecko are doing these things (opacity, etc) and learn a good way to implement them in IE9. Filters get the job done and were arguably ahead of their time (we’re just not getting the CSS transitions MS was working on for years); however, the implementation is kludgy to code and makes things ugly if you are trying to be at all innovative. It’s by no means a good solution compared to what is available on other browsers.""
 
 src: comment by Rober on http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/
+
+
+
+* Add unit tests for the various edge cases to verify the plugin's performance at any time
+
+* write a script to auto-generate a minified version of the JS file

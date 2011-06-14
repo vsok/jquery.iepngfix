@@ -1,9 +1,6 @@
-// TODO: write a script to auto-generate a minified
-//       version of this file
-
-// jquery.iepngfix provides a workaround for an IE issue where a blob of
-// black color appears when fading transparent PNGs using opacity, where
-// one is layered on top of another image (even JPG) at a higher CSS z-i.
+// jquery.iepngfix adds IE support for PNGs, and provides a workaround for
+// an IE issue where a blob of black color appears when fading transparent
+// PNGs using opacity
 //
 // It accomplishes this by setting the AlphaImageLoader filter in IE,
 // adding support for PNG transparency in IE > 5.5
@@ -13,12 +10,7 @@
 // Please read the above link's "The pitfalls" section to better
 // understand performance issues and other limitations of this method.
 (function( $ ) {
-	// TODO: document the purpose of each of these parameters in high detail
-	// sizingMethod: either "crop" or "scale"
-	// forceBG: force the elem's style "background-image" attribute to be considered
-	//          rather than using the img tag's src attribute
-	// Sizing method defaults to scale (matches image dimensions)
-	// TODO: enforce either "crop" or "scale"
+
 	$.fn.fixPNG = function(options) {
 		
 		// Don't bother with non-IE browsers
@@ -34,28 +26,10 @@
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
 		var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
 		
-		// Set up default options
-		var defaults = {
-			sizingMethod : 'scale',
-			forceBG      : false
-		}
-		
-		// Overwrite default options with user provided
-		// ones and merge them into "options"
-		options = $.extend({}, defaults, options);
-		
 		return this.each(function(i, elem) {
 
-			// determine if this node is an image
-			var isImg = options.forceBG ? false : $.nodeName(elem, "img");
-
-			// image name
-			var imgName = isImg ? elem.src : elem.currentStyle.backgroundImage;
-
-			// image src
-			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
-
-			if (isImg) {
+			// fix IMG elements for PNGs
+			if($.nodeName(elem, "img") && elem.src.match(/\.png/i) !== null) {
 				var styles = {
 					// Manually set the CSS width and height so
 					// that the shim properly expands to fill the image
@@ -63,14 +37,35 @@
 					'height' : $(elem).height() + 'px',
 					
 					// Set the "AlphaImageLoader" proprietary IE filter
-					'filter' : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')"
+					'filter' : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + elem.src + "', sizingMethod='scale')"
 				};
-				$(elem).css(styles).attr('src', SHIM_IMAGE);
-			} else {
-				// Set the "AlphaImageLoader" proprietary filter IE filter
-				this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')";
 				
-				this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
+				// apply the CSS styles
+				$(elem).css(styles);
+				
+				// apply the shim image
+				$(elem).attr('src', SHIM_IMAGE);
+			}
+			
+			// fix other elements that have CSS background-image PNGs
+			else if(elem.css('background-image').match(/\.png/i) !== null) {
+				var imageName = elem.css('backgroundImage');
+				var src = imageName.substring(5,imageName.length-2);
+				
+				// set the AlphaImageLoader filter's sizingMethod
+				// to 'scale' for repeating BGs, 'crop' for non-repeating BGs
+				var sizingMethod = (elem.css('background-repeat') == 'no-repeat' ? 'crop' : 'scale');
+				
+				var styles = {
+					// setup the shim image
+					'backgroundImage' : 'url(' + SHIM_IMAGE + ')',
+					
+					// Set the "AlphaImageLoader" proprietary IE filter
+					'filter'          : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')"
+				}
+				
+				// apply the CSS styles
+				$(elem).css(styles);
 			}
 		});
 	}
