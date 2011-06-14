@@ -25,8 +25,10 @@
 		if (!($.browser.msie)) return this;
 		
 		// This fix only applies to IE 5/6/7/8
+		var MIN_IE_VERSION = 5;
+		var MAX_IE_VERSION = 8;
 		var ieVersion = parseInt(jQuery.browser.version, 10);
-		if (ieVersion < 5 || ieVersion > 8) return this;
+		if (ieVersion < MIN_IE_VERSION || ieVersion > MAX_IE_VERSION) return this;
 		
 		// Empty 1x1px GIF, Base 64 encoded
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
