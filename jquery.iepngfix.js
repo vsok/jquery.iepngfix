@@ -36,7 +36,7 @@
 		
 		// Overwrite default options with user provided
 		// ones and merge them into "options"
-		var options = $.extend({}, defaults, options);
+		options = $.extend({}, defaults, options);
 		
 		return this.each(function() {
 
