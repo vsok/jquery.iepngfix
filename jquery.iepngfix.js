@@ -22,7 +22,7 @@
 	
 	// TODO: document the purpose of each of these parameters in high detail
 	// sizingMethod: either "crop" or "scale"
-	jquery.fn.fixPNG = function (sizingMethod, forceBG) {
+	$.fn.fixPNG = function (sizingMethod, forceBG) {
 		
 		// Don't bother with non-IE browsers
 		if (!($.browser.msie)) return $(this);
