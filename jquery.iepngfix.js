@@ -13,47 +13,49 @@
 // Please read the above link's "The pitfalls" section to better
 // understand performance issues and other limitations of this method.
 
-(function ($) {
-if (!$) return;
+(function( $ ) {
+	var DEFAULT_SIZING_METHOD = "scale";
 
-var DEFAULT_SIZING_METHOD = "scale";
-
-// Empty 1x1px GIF, Base 64 encoded
-// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
-var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
-
-$.fn.extend({
+	// Empty 1x1px GIF, Base 64 encoded
+	// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
+	var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
+	
 	// TODO: document the purpose of each of these parameters in high detail
 	// sizingMethod: either "crop" or "scale"
-	fixPNG: function(sizingMethod, forceBG) {
-		// Don't bother with non-IE browsers
-		if (!($.browser.msie)) return this;
+	jquery.fn.fixPNG = function (sizingMethod, forceBG) {
 		
-		// Sizing method defaults to scale (matches image dimensions)
-		// TODO: enforce either "crop" or "scale"
-		sizingMethod = sizingMethod || DEFAULT_SIZING_METHOD;
-		
-		this.each(function() {
-			// determine if this node is an image
-			var isImg = forceBG ? false : jQuery.nodeName(this, "img");
+		return this.each(function() {
 			
-			// image name
-			var imgName = isImg ? this.src : this.currentStyle.backgroundImage;
+			var $this = $(this);
 			
-			// image src
-			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
-			
-			// Set the "AlphaImageLoader" proprietary filter IE filter
-			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
-			
-			if (isImg) {
-				this.src = SHIM_IMAGE;
-			} else {
-				this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
-			}
-		});
-		
-		return this;
+			// Don't bother with non-IE browsers
+			if (!($.browser.msie)) return $this;
+
+			// Sizing method defaults to scale (matches image dimensions)
+			// TODO: enforce either "crop" or "scale"
+			sizingMethod = sizingMethod || DEFAULT_SIZING_METHOD;
+
+			$this.each(function() {
+				// determine if this node is an image
+				var isImg = forceBG ? false : jQuery.nodeName($this, "img");
+
+				// image name
+				var imgName = isImg ? $this.src : $this.currentStyle.backgroundImage;
+
+				// image src
+				var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
+
+				// Set the "AlphaImageLoader" proprietary filter IE filter
+				$this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
+
+				if (isImg) {
+					$this.src = SHIM_IMAGE;
+				} else {
+					$this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
+				}
+			});
+
+			return $this;
+		}
 	}
-});
-})(jQuery);
+})( jQuery );
