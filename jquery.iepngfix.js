@@ -67,7 +67,6 @@
 				};
 				$(elem).css(styles).attr('src', SHIM_IMAGE);
 			} else {
-				alert("BG");
 				// Set the "AlphaImageLoader" proprietary filter IE filter
 				this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')";
 				
