@@ -24,6 +24,10 @@
 		// Don't bother with non-IE browsers
 		if (!($.browser.msie)) return this;
 		
+		// This fix only applies to IE 5/6/7/8
+		var ieVersion = parseInt(jQuery.browser.version, 10);
+		if (ieVersion < 5 || ieVersion > 8) return this;
+		
 		// Empty 1x1px GIF, Base 64 encoded
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
 		var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';

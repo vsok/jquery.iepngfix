@@ -1,0 +1,9 @@
+Look into @font-face issues:
+
+"IE’s CSS filters will jack up PNGs if you try to run them on content with PNGs in it. It’s not just the Alpha filter. It’s all of their filters. To make matters worse, It will jack up your @font-face fonts, too.
+
+I recently did a client site with some tricky Ajax page loads (unontrusively, of course) where the content faded in and out. While the page cross fades, the font looks horrible (seemed to remove anti-aliasing while it was not 100% opaque), and sometimes things like the bar in “A” would disappear, leaving an upside-down “V”, after the fade back in.
+
+Microsoft needs to research how Webkit and Gecko are doing these things (opacity, etc) and learn a good way to implement them in IE9. Filters get the job done and were arguably ahead of their time (we’re just not getting the CSS transitions MS was working on for years); however, the implementation is kludgy to code and makes things ugly if you are trying to be at all innovative. It’s by no means a good solution compared to what is available on other browsers.""
+
+src: comment by Rober on http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/
