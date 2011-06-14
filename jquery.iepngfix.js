@@ -3,7 +3,7 @@
 
 // jquery.iepngfix provides a workaround for an IE issue where a blob of
 // black color appears when fading transparent PNGs using opacity, where
-// one is layered on top of another image (even JPG) at a higher CSS z-index.
+// one is layered on top of another image (even JPG) at a higher CSS z-i.
 //
 // It accomplishes this by setting the AlphaImageLoader filter in IE,
 // adding support for PNG transparency in IE > 5.5
@@ -15,7 +15,7 @@
 (function( $ ) {
 	// TODO: document the purpose of each of these parameters in high detail
 	// sizingMethod: either "crop" or "scale"
-	// forceBG: force the element's style "background-image" attribute to be considered
+	// forceBG: force the elem's style "background-image" attribute to be considered
 	//          rather than using the img tag's src attribute
 	// Sizing method defaults to scale (matches image dimensions)
 	// TODO: enforce either "crop" or "scale"
@@ -36,31 +36,41 @@
 		
 		// Set up default options
 		var defaults = {
-			sizingMethod: 'scale',
-			forceBG:      true
+			sizingMethod : 'scale',
+			forceBG      : false
 		}
 		
 		// Overwrite default options with user provided
 		// ones and merge them into "options"
 		options = $.extend({}, defaults, options);
 		
-		return this.each(function() {
+		return this.each(function(i, elem) {
 
 			// determine if this node is an image
-			var isImg = options.forceBG ? false : $.nodeName(this, "img");
+			var isImg = options.forceBG ? false : $.nodeName(elem, "img");
 
 			// image name
-			var imgName = isImg ? this.src : this.currentStyle.backgroundImage;
+			var imgName = isImg ? elem.src : elem.currentStyle.backgroundImage;
 
 			// image src
 			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
 
-			// Set the "AlphaImageLoader" proprietary filter IE filter
-			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')";
-
 			if (isImg) {
-				this.src = SHIM_IMAGE;
+				var styles = {
+					// Manually set the CSS width and height so
+					// that the shim properly expands to fill the image
+					'width'  : $(elem).width() + 'px',
+					'height' : $(elem).height() + 'px',
+					
+					// Set the "AlphaImageLoader" proprietary IE filter
+					'filter' : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')"
+				};
+				$(elem).css(styles).attr('src', SHIM_IMAGE);
 			} else {
+				alert("BG");
+				// Set the "AlphaImageLoader" proprietary filter IE filter
+				this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')";
+				
 				this.style.backgroundImage = "url(" + SHIM_IMAGE + ")";
 			}
 		});
