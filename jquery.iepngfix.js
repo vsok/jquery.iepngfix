@@ -17,25 +17,31 @@
 	// sizingMethod: either "crop" or "scale"
 	// forceBG: force the element's style "background-image" attribute to be considered
 	//          rather than using the img tag's src attribute
-	$.fn.fixPNG = function (sizingMethod, forceBG) {
+	// Sizing method defaults to scale (matches image dimensions)
+	// TODO: enforce either "crop" or "scale"
+	$.fn.fixPNG = function(options) {
 		
 		// Don't bother with non-IE browsers
 		if (!($.browser.msie)) return this;
 		
-		var DEFAULT_SIZING_METHOD = "scale";
-
 		// Empty 1x1px GIF, Base 64 encoded
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
 		var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
 		
-		// Sizing method defaults to scale (matches image dimensions)
-		// TODO: enforce either "crop" or "scale"
-		sizingMethod = sizingMethod || DEFAULT_SIZING_METHOD;
+		// Set up default options
+		var defaults = {
+			sizingMethod: 'scale',
+			forceBG:      true
+		}
+		
+		// Overwrite default options with user provided
+		// ones and merge them into "options"
+		var options = $.extend({}, defaults, options);
 		
 		return this.each(function() {
 
 			// determine if this node is an image
-			var isImg = forceBG ? false : $.nodeName(this, "img");
+			var isImg = options.forceBG ? false : $.nodeName(this, "img");
 
 			// image name
 			var imgName = isImg ? this.src : this.currentStyle.backgroundImage;
@@ -44,7 +50,7 @@
 			var src = isImg ? imgName : imgName.substring(5,imgName.length-2);
 
 			// Set the "AlphaImageLoader" proprietary filter IE filter
-			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + sizingMethod + "')";
+			this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + "', sizingMethod='" + options.sizingMethod + "')";
 
 			if (isImg) {
 				this.src = SHIM_IMAGE;
