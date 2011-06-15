@@ -13,15 +13,17 @@ Make sure that you've included jQuery:
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js></script>
 
-In your jQuery script, use a selector to pick out the elements that you want to apply the PNG fix to:
+In your jQuery script, use a selector to pick out the elements that you want to apply the PNG fix to.
+
+IMG elements using a PNG:
 
     $('#slideshow img').fixPNG();
 
-or
+other elements with a CSS 'background-image' PNG:
 
     $('.bg-container').fixPNG();
 
-And you're done! jquery.iepngfix will automatically pick out IMG tags with PNGs, and elements that have a CSS background-image with PNGs and fix them.
+And you're done! jquery.iepngfix will automatically determine which case applies to each selected element and fix it as appropriate.
 
 ## Demo
 
