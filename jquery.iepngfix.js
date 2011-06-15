@@ -26,6 +26,9 @@
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
 		var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
 		
+		// classname of div wrapper for the divWrapImages option
+		var DIV_WRAPPER_CLASS = 'iepngfix-wrapper';
+		
 		// Set up default options
 		var defaults = {
 			divWrapImages: false
@@ -57,7 +60,7 @@
 				
 				if(options.divWrapImages) {
 					// wrap IMG in a div for jquery.cycle support
-					$(elem).wrap('<div class="iepngfix-wrapper">');
+					$(elem).wrap('<div class="'+DIV_WRAPPER_CLASS+'">');
 				}
 			}
 			

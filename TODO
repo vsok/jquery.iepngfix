@@ -83,3 +83,5 @@ Seems like background-position is reset when using this. Would it be possible to
 http://reference.sitepoint.com/css/filter
 
 * investigate the need for enabled='true' in the AlphaImageLoader filter as on http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8
+
+* add test swarm support for all versions of IE
