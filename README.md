@@ -51,8 +51,8 @@ Created by Jonathan from Solid Design Group, a [Lehigh Valley website design](ht
 
 ## Sources
 
-* [http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem](http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem)
-* [http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8](http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8)
+* [StackOverflow - jquery cycle IE7 transparent png problem](http://stackoverflow.com/questions/1156985/jquery-cycle-ie7-transparent-png-problem)
+* [StackOverflow - How to solve/hack fading semi-transparent PNG bug in IE8?](http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8)
 * [24 Ways - "Transparent PNGs in Internet Explorer 6"](http://24ways.org/2007/supersleight-transparent-png-in-ie6)
 * [IE8 Still Failing PNG Alpha](http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/)
 
