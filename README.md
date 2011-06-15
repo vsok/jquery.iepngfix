@@ -23,17 +23,19 @@ other elements with a CSS 'background-image' PNG:
 
     $('.bg-container').fixPNG();
 
-And you're done! jquery.iepngfix will automatically determine which case applies to each selected element and fix it as appropriate.
+And you're done! jquery.iepngfix will automatically determine which case applies to each selected element and fix it as appropriate. Elements that don't apply will be ignored.
+
+## Notes
+
+Only apply this fix to PNGs with transparent backgrounds. This fix uses the IE "AlphaImageLoader" filter which slows down the browser, so use it sparingly and only as needed.
+
+Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility.
 
 ## Demo
 
 Check out demo.html in the "demo" folder; you'll have to run this under a web server such as Apache because Windows doesn't recognize the UNIX style pathnames. Alternatively, view the slideshow on the homepage of http://soliddesigngroup.net which utilizes this method.
 
 The cycling slideshow demonstrates how jquery.iepngfix removes the black blobs when transitioning PNG with a transparent BG, and overlaid on top of another image. View the source to see how it all works.
-
-## Notes
-
-Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](http://javascript.crockford.com/) [JSMin](http://www.crockford.com/javascript/jsmin.html) utility.
 
 ## Issues
 
