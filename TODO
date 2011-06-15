@@ -15,3 +15,18 @@ src: comment by Rober on http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/
 * write a script to auto-generate a minified version of the JS file
 
 * add a simpler set of demos that tests each feature individually
+
+* Look into this issue brought up by Bradley Wright @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
+
+"One thing to be careful of: if you’re using an image element with padding or borders, this will fail, as the calculated width and height will include said borders and padding (so the image width and height will be increased).
+
+A workaround is to use margins instead of padding."
+
+* Look into input image support, as brought up by Francis Booth @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
+
+"Thanks for this Drew, we used this on a project last Friday and extended it to be <input type=“image” /> aware:
+
+// image elements
+if (settings.imgs && (self.is(‘img[src$=png]’) || self.is(‘input[src$=png][type=image]’))){
+
+…I’m sure you could do something sweet with a preference too like has been done for img tags, something like: inputimgs: true"

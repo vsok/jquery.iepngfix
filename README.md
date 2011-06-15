@@ -25,6 +25,11 @@ other elements with a CSS 'background-image' PNG:
 
 And you're done! jquery.iepngfix will automatically determine which case applies to each selected element and fix it as appropriate. Elements that don't apply will be ignored.
 
+For performance reasons you should only apply this fix where needed, but you can also specify all images or even all elements on a page:
+
+    $('body *').fixPNG();
+    $('img').fixPNG();
+
 ## Notes
 
 Only apply this fix to PNGs with transparent backgrounds. This fix uses the IE "AlphaImageLoader" filter which slows down the browser, so use it sparingly and only as needed.
