@@ -26,6 +26,15 @@
 		// src: Comment by George Stephanis at http://allinthehead.com/retro/338/supersleight-jquery-plugin
 		var SHIM_IMAGE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXZwQWcAAAABAAAAAQDHlV/tAAAAAnRSTlMA/1uRIrUAAAAKSURBVAjXY/gPAAEBAQAbtu5WAAAAAElFTkSuQmCC';
 		
+		// Set up default options
+		var defaults = {
+			divWrapImages: false
+		};
+		
+		// Overwrite default options with user provided
+		// ones and merge them into "options"
+		options = $.extend({}, defaults, options);
+		
 		return this.each(function(i, elem) {
 
 			// fix IMG elements for PNGs
@@ -45,6 +54,11 @@
 				
 				// apply the shim image
 				$(elem).attr('src', SHIM_IMAGE);
+				
+				if(options.divWrapImages) {
+					// wrap IMG in a div for jquery.cycle support
+					$(elem).wrap('<div class="iepngfix-wrapper">');
+				}
 			}
 			
 			// fix other elements that have CSS background-image PNGs

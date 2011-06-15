@@ -30,6 +30,13 @@ For performance reasons you should only apply this fix where needed, but you can
     $('body *').fixPNG();
     $('img').fixPNG();
 
+Here's how you'd go about cycling transparent PNGs with jquery.cycle in conjunction with this plugin:
+
+		$('ul li img').fixPNG({divWrapImages: true});
+		$('ul li').cycle({cleartypeNoBg: true});
+		
+Check out demo.html example #3 to see this in action.
+
 ## Notes
 
 Only apply this fix to PNGs with transparent backgrounds. This fix uses the IE "AlphaImageLoader" filter which slows down the browser, so use it sparingly and only as needed.

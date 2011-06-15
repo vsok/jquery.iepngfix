@@ -71,7 +71,7 @@
 	<script type='text/javascript' src='jquery.cycle.all.min.js'></script>
 	<script type='text/javascript'>
 	$(document).ready(function() {
-		$('ul.triangles.iepngfix img').fixPNG();
+		$('ul.triangles.iepngfix img').fixPNG({divWrapImages: true});
 		$('ul.triangles.jquery-cycling li').cycle({cleartypeNoBg: true});
 	});
 	</script>
@@ -102,16 +102,16 @@
 	<p>Should display black lines and artifacting during fade transitions in IE5/6/7/8.</p>
 	<ul class='triangles jquery-cycling'>
 		<li class='one'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 		<li class='two'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 		<li class='three'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 	</ul>
 	
@@ -133,19 +133,19 @@
 	</ul>
 	
 	<h2>3. Transparent PNGs <strong>with</strong> jquery.cycle</h2>	
-	<p>Should render correctly in all IE browsers. Note that you must use cleartypeNoBg: true as an option to cycle()</p>
+	<p>Should render correctly in all IE browsers. Note that you must use cleartypeNoBg: true as an option to jquery.cycle's cycle(), and either directly wrap your images in container elements or pass divWrapImages: true to jquery.iepngfix's fixPNG()</p>
 	<ul class='triangles iepngfix jquery-cycling'>
 		<li class='one'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 		<li class='two'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 		<li class='three'>
-			<div><img src='triangles.png' /></div>
-			<div><img src='circles.png' /></div>
+			<img src='triangles.png' />
+			<img src='circles.png' />
 		</li>
 	</ul>
 </body>
