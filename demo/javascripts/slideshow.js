@@ -1,10 +1,15 @@
 $(document).ready(function(){
   var slideshowContent = $('#slideshow .content');
 	
-  //transparent fading PNG fix for IE7/8
+  // transparent fading PNG fix for IE5/6/7/8,
+  // applied to IMG tags with PNGs
   slideshowContent.find('img').fixPNG();
-	
-  //content slider
+
+  // transparent fading PNG fix for IE5/6/7/8, applied
+  // to elements with a CSS background-image of type PNG
+  $('#slideshow a.quote').fixPNG();
+
+  // content slider
   var CYCLE_TIMEOUT_S = 10;
   var CYCLE_SPEED_S = 2;
 

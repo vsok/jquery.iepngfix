@@ -48,13 +48,13 @@
 			}
 			
 			// fix other elements that have CSS background-image PNGs
-			else if(elem.css('background-image').match(/\.png/i) !== null) {
-				var imageName = elem.css('backgroundImage');
+			else if($(elem).css('background-image').match(/\.png/i) !== null) {
+				var imageName = $(elem).css('backgroundImage');
 				var src = imageName.substring(5,imageName.length-2);
 				
 				// set the AlphaImageLoader filter's sizingMethod
 				// to 'scale' for repeating BGs, 'crop' for non-repeating BGs
-				var sizingMethod = (elem.css('background-repeat') == 'no-repeat' ? 'crop' : 'scale');
+				var sizingMethod = ($(elem).css('background-repeat') == 'no-repeat' ? 'crop' : 'scale');
 				
 				var styles = {
 					// setup the shim image
