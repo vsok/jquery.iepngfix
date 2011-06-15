@@ -38,7 +38,7 @@
 		return this.each(function(i, elem) {
 
 			// fix IMG elements for PNGs
-			if($.nodeName(elem, "img") && elem.src.match(/\.png/i) !== null) {
+			if($.nodeName(elem, "img") && $(elem).attr('src').match(/\.png/i) !== null) {
 				var styles = {
 					// Manually set the CSS width and height so
 					// that the shim properly expands to fill the image
@@ -46,7 +46,7 @@
 					'height' : $(elem).height() + 'px',
 					
 					// Set the "AlphaImageLoader" proprietary IE filter
-					'filter' : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + elem.src + "', sizingMethod='scale')"
+					'filter' : "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + $(elem).attr('src') + "', sizingMethod='scale')"
 				};
 				
 				// apply the CSS styles
