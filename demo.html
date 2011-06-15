@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>jquery.iepngfix.js demo</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+	<style type='text/css'>
+	body {
+		padding-top: 20px;
+		margin: 0 auto;
+		font-family: Verdana;
+		text-align: center;
+		width: 520px;
+	}
+	h1 {
+		font-size: 28px;
+		border: 1px solid black;
+		padding: 12px 0;
+		margin-bottom: 12px;
+		margin-top: 26px;
+	}
+	h2 {font-size: 18px;}
+	p  {font-size: 12px; margin-top: 8px;}
+	strong {font-weight: bold;}
+	
+	ul.triangles {
+		width: 550px;
+		overflow: hidden;
+		padding: 20px 0;
+	}
+	ul.triangles li {
+		float: left;
+		width: 150px;
+		height: 330px;
+		background: #fff;
+		margin-right: 30px;
+		-moz-border-radius: 20px;
+		border-radius: 20px;
+	}
+	
+	ul.triangles li.clearfix:after {
+	    content: ".";
+	    display: block;
+	    height: 0;
+	    clear: both;
+	    visibility: hidden;
+	}
+	
+	ul.triangles img {
+		float: left;
+		display: block;
+		margin-top: 36px;
+		margin-left: 31px;
+		width: 89px;
+		height: 251px;
+	}
+	
+	ul.triangles li.two   {background-image: url(bg1.jpg);}
+	ul.triangles li.three {background-image: url(bg2.jpg);}
+	
+	ul.triangles.reduced-opacity img {
+		-moz-opacity:.99;
+		filter:alpha(opacity=99);
+		opacity:.99;
+	}
+	</style>
+
+	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+	<script type='text/javascript' src='jquery.iepngfix.js'></script>
+	<script type='text/javascript' src='jquery.cycle.all.min.js'></script>
+	<script type='text/javascript'>
+	$(document).ready(function() {
+		$('ul.triangles.jquery-cycling li').cycle();
+		$('ul.triangles.iepngfix img').fixPNG();
+	});
+	</script>
+
+</head>
+
+<body id='demo'>
+	<p>Tested against the triangle images from<br  /><a href='http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/'>mezzoblue - IE8 Still Failing PNG Alpha</a></p>
+	
+	<h1 class='one'><strong>Without</strong> jquery.iepngfix</h1>
+	<h2>1. Transparent PNGs <strong>without</strong> CSS opacity set</h2>
+	<p>Should render correctly in IE8, but have rendering issues in IE5/6/7.</p>
+	<ul class='triangles full-opacity'>
+		<li class='one'><img src='triangles.png' /></li>
+		<li class='two'><img src='triangles.png' /></li>
+		<li class='three'><img src='triangles.png' /></li>
+	</ul>
+
+	<h2>2. Transparent PNGs <strong>with</strong> CSS opacity set to 0.99</h2>	
+	<p>Should display black lines and artifacting in IE5/6/7/8.</p>
+	<ul class='triangles reduced-opacity'>
+		<li class='one'><img src='triangles.png' /></li>
+		<li class='two'><img src='triangles.png' /></li>
+		<li class='three'><img src='triangles.png' /></li>
+	</ul>
+	
+	<h2>3. Transparent PNGs <strong>with</strong> jQuery cycling</h2>	
+	<p>Should display background artifacting in IE5/6/7/8.</p>
+	<ul class='triangles jquery-cycling'>
+		<li class='one'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+		<li class='two'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+		<li class='three'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+	</ul>
+	
+	<h1 class='two'><strong>With</strong> jquery.iepngfix</h1>
+	<h2>1. Transparent PNGs <strong>without</strong> CSS opacity set</h2>
+	<p>Should render correctly in all IE browsers.</p>
+	<ul class='triangles iepngfix full-opacity'>
+		<li class='one'><img src='triangles.png' /></li>
+		<li class='two'><img src='triangles.png' /></li>
+		<li class='three'><img src='triangles.png' /></li>
+	</ul>
+	
+	<h2>2. Transparent PNGs <strong>with</strong> CSS opacity set to 0.99</h2>	
+	<p>Should render correctly in all IE browsers.</p>
+	<ul class='triangles iepngfix reduced-opacity'>
+		<li class='one'><img src='triangles.png' /></li>
+		<li class='two'><img src='triangles.png' /></li>
+		<li class='three'><img src='triangles.png' /></li>
+	</ul>
+	
+	<h2>3. Transparent PNGs <strong>with</strong> jQuery cycling</h2>	
+	<p>Should render correctly in all IE browsers.</p>
+	<ul class='triangles iepngfix jquery-cycling'>
+		<li class='one'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+		<li class='two'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+		<li class='three'>
+			<img src='triangles.png' />
+			<img src='circles.png' />
+		</li>
+	</ul>
+</body>
