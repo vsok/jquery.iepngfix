@@ -33,9 +33,7 @@ Use jquery.iepngfix.min.js for production. Minified using [Douglas Crawford's](h
 
 ## Demo
 
-Check out demo.html in the "demo" folder; you'll have to run this under a web server such as Apache because Windows doesn't recognize the UNIX style pathnames. Alternatively, view the slideshow on the homepage of http://soliddesigngroup.net which utilizes this method.
-
-The cycling slideshow demonstrates how jquery.iepngfix removes the black blobs when transitioning PNG with a transparent BG, and overlaid on top of another image. View the source to see how it all works.
+Check out demo.html in the "demo" folder.
 
 ## Issues
 
