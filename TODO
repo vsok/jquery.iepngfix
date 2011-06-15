@@ -10,7 +10,7 @@ src: comment by Rober on http://mezzoblue.com/archives/2010/05/20/ie8_still_fa/
 
 
 
-* Add unit tests for the various edge cases to verify the plugin's performance at any time
+* Add unit tests (QUnit?) for the various edge cases to verify the plugin's performance at any time
 
 * write a script to auto-generate a minified version of the JS file
 
