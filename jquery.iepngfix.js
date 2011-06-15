@@ -1,6 +1,6 @@
-// jquery.iepngfix adds IE support for PNGs, and provides a workaround for
-// an IE issue where a blob of black color appears when fading transparent
-// PNGs using opacity
+// jquery.iepngfix adds IE5/6/7/8 support for transparent PNGs and
+// fixes issue where black blobs appear on non-binary alpha channel
+// areas of PNGs when using CSS opacity or fading with jquery.cycle.
 //
 // It accomplishes this by setting the AlphaImageLoader filter in IE,
 // adding support for PNG transparency in IE > 5.5
