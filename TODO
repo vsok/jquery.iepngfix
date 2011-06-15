@@ -78,3 +78,8 @@ Seems like background-position is reset when using this. Would it be possible to
 * Support sprite-sheets as brought up by Joke Buddha @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
 
 "Works great but unfortunatelly doesn’t help when background-position are used. We use one css sprite for all images…"
+
+* investigate the need to conditionally apply  -ms-filter to IE8
+http://reference.sitepoint.com/css/filter
+
+* investigate the need for enabled='true' in the AlphaImageLoader filter as on http://stackoverflow.com/questions/1204457/how-to-solve-hack-fading-semi-transparent-png-bug-in-ie8
