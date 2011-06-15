@@ -59,5 +59,8 @@ Created by Jonathan from Solid Design Group, a [Lehigh Valley website design](ht
 ## Other solutions:
 
 * [Superslight jQuery plugin](http://allinthehead.com/retro/338/supersleight-jquery-plugin)
+* [jquery.pngFix.js](http://jquery.andreaseberhard.de/pngFix/)
+* [jQuery.ifixpng](http://jquery.khurshid.com/ifixpng.php)
+* [Unit PNG Fix](http://labs.unitinteractive.com/unitpngfix.php)
 * [DD_belatedPNG](http://www.dillerdesign.com/experiment/DD_belatedPNG/)
 * [PNG Fix](http://blog.pauljamescampbell.co.uk/about-2/png-fix/)
