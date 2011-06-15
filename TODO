@@ -30,3 +30,51 @@ A workaround is to use margins instead of padding."
 if (settings.imgs && (self.is(‘img[src$=png]’) || self.is(‘input[src$=png][type=image]’))){
 
 …I’m sure you could do something sweet with a preference too like has been done for img tags, something like: inputimgs: true"
+
+* Handle background-repeat: repeat-y and repeat-x as brought up by Marc Hall @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
+
+I was wondering if you had fleshed out the background png handler? Whilst using the ss js at 24ways I found that if you had a background set background-repeat: repeat-y; it would enlarge the image to 100%.
+I hacked this together to handle it: (supersleight.js)
+
+var bg_fnFixPng = function(obj) {
+var mode = ‘scale’;
+var bg	= obj.currentStyle.backgroundImage;
+var src = bg.substring(5,bg.length-2);
+if (obj.currentStyle.backgroundRepeat == ‘no-repeat’) {
+mode = ‘crop’;
+}
+if (obj.currentStyle.backgroundRepeat == ‘repeat-y’) {
+obj.currentStyle.backgroundPosition = obj.currentStyle.backgroundPositionX;
+mode = ‘crop’;
+}
+obj.style.filter = “progid:DXImageTransform.Microsoft.AlphaImageLoader(src=’” + src + “’, sizingMethod=’” + mode + “’)”;
+obj.style.backgroundImage = ‘url(’shim‘)’;
+};
+
+Now, obviously, this only handles the one exception and there is the issue of having to enforce the postion of the image, yet, I think you get the picture. I’m thinking we need to rewrite this part to be more like an object class.
+
+
+* Issue brought up by  house9 @ http://allinthehead.com/retro/338/supersleight-jquery-plugin on supporting .PNG that have Rails-style timestamps like ?129387128973
+
+"Great plugin!
+
+I had to change line #25 since I use the ruby on rails image helper which appends a timestamp to the image file name 
+which renders as <img src=”/images/my_image.png?1241218462” alt=“my image” />
+
+changed
+
+if (settings.imgs && self.is(‘img[src$=png]’)){
+
+to
+
+if (settings.imgs && self.is(“img[src*=’.png?’]”)){"
+
+* Issue brought up by Ole Marius @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
+
+"Ole Marius:
+Seems like background-position is reset when using this. Would it be possible to get the css-position from the element, then re-applying it in some way?"
+
+
+* Support sprite-sheets as brought up by Joke Buddha @ http://allinthehead.com/retro/338/supersleight-jquery-plugin
+
+"Works great but unfortunatelly doesn’t help when background-position are used. We use one css sprite for all images…"
