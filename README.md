@@ -1,6 +1,6 @@
 # IE5/6/7/8 transparent PNG fix
 
-Adds IE5/6/7/8 support for PNGs, and provides a workaround for an IE issue where a blob of black color appears when fading transparent PNGs using opacity.
+Adds IE5/6/7/8 support for transparent PNGs and fixes issue where black blobs appear on non-binary alpha channel areas of PNGs when using CSS opacity or fading with jquery.cycle.
 
 This code amalgamates various solutions to this problem that I found elsewhere
 on the Internet with a few additions, cleaned up and packaged as a friendly jQuery plugin.
