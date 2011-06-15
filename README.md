@@ -5,23 +5,23 @@ Adds IE5/6/7/8 support for PNGs, and provides a workaround for an IE issue where
 This code amalgamates various solutions to this problem that I found elsewhere
 on the Internet with a few additions, cleaned up and packaged as a friendly jQuery plugin.
 
+Unlike other plugins there's no need to specify a 1x1 shim file, as a Base64 version is embedded directly in the plugin source.
+
 ## Usage
 
-Make sure that you've included jQuery
+Make sure that you've included jQuery:
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js></script>
 
-In your jQuery script, use a selector to pick out the images that you want to apply the PNG fix to.
+In your jQuery script, use a selector to pick out the elements that you want to apply the PNG fix to:
 
-    $('selectorhere').fixPNG(sizingMethod, forceBG, emptyImagePath);
+    $('#slideshow img').fixPNG();
 
-sizingMethod: either "scale" or "crop". You generally want "scale"
-forceBG: TODO:NEED TO CLARIFY THE PURPOSE OF THIS AND DOCUMENT IT
-emptyImagePath: path to a 1x1 transparent .gif
-		
-Example:
+or
 
-    $('#slideshow .content img').fixPNG('scale', true, '../../empty.gif');
+    $('.bg-container').fixPNG();
+
+And you're done! jquery.iepngfix will automatically pick out IMG tags with PNGs, and elements that have a CSS background-image with PNGs and fix them.
 
 ## Demo
 
